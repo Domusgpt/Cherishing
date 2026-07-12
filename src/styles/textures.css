@@ -1,0 +1,52 @@
+/*
+ * Textures — film grain overlay + CRT scanlines.
+ * All decorative and pointer-transparent; every one is removed under
+ * high-contrast mode so it never fights legibility.
+ */
+
+/* Full-page film grain: a faint SVG turbulence tile floated over everything. */
+.grain-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Scanlines — only ever applied inside a CRT frame. */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.11) 0,
+    rgba(0, 0, 0, 0.11) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 5;
+}
+
+/* Subtle horizontal label texture for tape labels. */
+.label-texture {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.03) 0,
+    rgba(0, 0, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+:root[data-contrast="high"] .grain-overlay::before,
+:root[data-contrast="high"] .scanlines::after,
+:root[data-contrast="high"] .label-texture {
+  display: none;
+  background: none;
+}

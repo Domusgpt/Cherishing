@@ -1,0 +1,80 @@
+.chunky {
+  --btn-bg: var(--surface);
+  --btn-ink: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--tap-min);
+  padding: 0.7rem 1.3rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  cursor: pointer;
+  box-shadow: var(--raise-1);
+  transition: transform 90ms ease, box-shadow 90ms ease, filter 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+}
+
+.chunky:hover {
+  filter: brightness(1.02);
+}
+
+.chunky:active {
+  transform: translateY(1px);
+  box-shadow: var(--inset-1);
+}
+
+.chunky:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: var(--inset-1);
+  transform: none;
+}
+
+.chunky__icon {
+  display: inline-flex;
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.chunky--lg {
+  min-height: calc(var(--tap-min) + 10px);
+  font-size: 1.2rem;
+  padding: 0.9rem 1.6rem;
+}
+
+.chunky--block {
+  display: flex;
+  width: 100%;
+}
+
+/* primary — warm rust with a subtle amber inner glow */
+.chunky--primary {
+  --btn-bg: linear-gradient(180deg, var(--rust), var(--rust-deep));
+  --btn-ink: var(--accent-ink);
+  box-shadow: var(--raise-2), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.chunky--primary:active {
+  box-shadow: var(--inset-2);
+}
+
+.chunky--danger {
+  --btn-bg: linear-gradient(180deg, var(--danger), var(--danger-deep));
+  --btn-ink: #fff;
+  box-shadow: var(--raise-1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+:root[data-contrast="high"] .chunky--primary,
+:root[data-contrast="high"] .chunky--danger {
+  --btn-bg: #000;
+  --btn-ink: #fff;
+}
+:root[data-contrast="high"] .chunky {
+  border: 2px solid #000;
+}

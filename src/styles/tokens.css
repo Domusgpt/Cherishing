@@ -1,0 +1,109 @@
+/*
+ * Cherishing design tokens — warm VHS / CRT neoskeuomorphism.
+ * All surfaces are lit from the top-left (cream highlight) and shaded to the
+ * bottom-right (tape-brown shadow). High-contrast mode overrides the palette
+ * and flattens textures near the bottom of this file.
+ */
+
+:root {
+  /* --- palette: warm amber & cream over deep tape-brown --- */
+  --cream: #f6edda;
+  --cream-2: #ece0c6;
+  --cream-3: #e2d3b3;
+  --paper: #fdf7e9;
+  --amber: #e8a33d;
+  --amber-glow: #ffb000;
+  --rust: #c1572a;
+  --rust-deep: #9e4420;
+  --brown-9: #2a211a;
+  --brown-7: #3b2f24;
+  --brown-5: #6b5844;
+  --tape-black: #1c1a17;
+  --tape-black-2: #2b2721;
+  --crt-green: #7dd87d;
+  --label-blue: #4a6d8c;
+  --danger: #b23b3b;
+  --danger-deep: #8f2c2c;
+  --good: #4f7d43;
+
+  /* semantic surfaces */
+  --bg: var(--cream-2);
+  --surface: var(--paper);
+  --surface-sunk: var(--cream);
+  --ink: var(--brown-9);
+  --ink-soft: var(--brown-5);
+  --line: rgba(93, 64, 28, 0.22);
+  --accent: var(--rust);
+  --accent-ink: #fff7e9;
+
+  /* --- neoskeuomorphic surfaces: dual-light box-shadows --- */
+  --raise-1: -2px -2px 5px rgba(255, 252, 240, 0.9), 3px 3px 8px rgba(93, 64, 28, 0.28);
+  --raise-2: -4px -4px 10px rgba(255, 252, 240, 0.85), 6px 6px 16px rgba(93, 64, 28, 0.32);
+  --raise-3: -6px -6px 16px rgba(255, 252, 240, 0.8), 10px 10px 26px rgba(93, 64, 28, 0.34);
+  --inset-1: inset 2px 2px 5px rgba(93, 64, 28, 0.3), inset -2px -2px 5px rgba(255, 252, 240, 0.75);
+  --inset-2: inset 3px 3px 8px rgba(93, 64, 28, 0.36), inset -3px -3px 8px rgba(255, 252, 240, 0.7);
+  --glow-amber: 0 0 12px rgba(255, 176, 0, 0.45);
+  --glow-amber-strong: 0 0 22px rgba(255, 176, 0, 0.6);
+
+  /* --- shape --- */
+  --radius-card: 14px;
+  --radius-btn: 12px;
+  --radius-pill: 999px;
+  --radius-lg: 22px;
+
+  /* --- spacing scale --- */
+  --sp-1: 0.35rem;
+  --sp-2: 0.6rem;
+  --sp-3: 0.9rem;
+  --sp-4: 1.3rem;
+  --sp-5: 1.9rem;
+  --sp-6: 2.6rem;
+
+  /* --- type --- */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Courier New", "Courier", ui-monospace, monospace; /* handwritten-tape-label feel */
+
+  /* --- interaction --- */
+  --tap-min: 52px;
+  --focus-ring: 3px solid var(--rust);
+  --focus-offset: 3px;
+
+  /* --- motion (in-app + OS toggle both flip this) --- */
+  --motion-scale: 1; /* multiplied into animation durations; 0 disables */
+}
+
+/* Text-size presets set by Settings (applied to <html>). */
+:root[data-text="normal"] { font-size: 112.5%; } /* 18px */
+:root[data-text="large"] { font-size: 125%; }    /* 20px */
+:root[data-text="xl"] { font-size: 140%; }        /* 22.4px */
+
+/* Reduced motion: in-app toggle. The OS media query is handled in base.css. */
+:root[data-motion="reduced"] {
+  --motion-scale: 0;
+}
+
+/* --- High-contrast theme --- */
+:root[data-contrast="high"] {
+  --cream: #ffffff;
+  --cream-2: #ffffff;
+  --cream-3: #f2f2f2;
+  --paper: #ffffff;
+  --brown-9: #000000;
+  --brown-7: #111111;
+  --brown-5: #2b2b2b;
+  --ink: #000000;
+  --ink-soft: #1a1a1a;
+  --line: #000000;
+  --accent: #9e2f00;
+  --rust: #9e2f00;
+  --amber-glow: #7a5200;
+
+  /* flatten the tactile shadows into simple solid borders */
+  --raise-1: 0 0 0 2px #000;
+  --raise-2: 0 0 0 3px #000;
+  --raise-3: 0 0 0 3px #000;
+  --inset-1: inset 0 0 0 2px #000;
+  --inset-2: inset 0 0 0 3px #000;
+  --glow-amber: none;
+  --glow-amber-strong: none;
+}
