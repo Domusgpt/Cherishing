@@ -1,0 +1,53 @@
+.settings {
+  max-width: 44rem;
+}
+
+.settings__h2 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.settings__segment {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.seg {
+  flex: 1;
+  min-width: 7rem;
+  min-height: calc(var(--tap-min) + 8px);
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--surface-sunk);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: var(--inset-1);
+}
+.seg--on {
+  background: linear-gradient(180deg, var(--amber), var(--rust));
+  color: var(--accent-ink);
+  box-shadow: var(--raise-1), var(--glow-amber);
+}
+
+.settings__storage {
+  font-family: var(--font-label);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.settings__message {
+  margin: 0;
+  padding: var(--sp-3);
+  background: var(--surface-sunk);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--inset-1);
+  font-weight: 700;
+}
+
+:root[data-contrast="high"] .seg--on {
+  background: #000;
+  color: #fff;
+}

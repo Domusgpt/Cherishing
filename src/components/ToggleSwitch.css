@@ -1,0 +1,61 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  cursor: pointer;
+  padding: var(--sp-2) 0;
+}
+
+.toggle__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.toggle__label {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.toggle__hint {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.toggle__switch {
+  flex: none;
+  width: 72px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--surface-sunk);
+  box-shadow: var(--inset-1);
+  position: relative;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+.toggle__switch--on {
+  background: linear-gradient(90deg, var(--amber), var(--rust));
+  box-shadow: var(--inset-1), var(--glow-amber);
+}
+
+.toggle__knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--raise-1);
+  transition: transform 160ms ease;
+}
+.toggle__switch--on .toggle__knob {
+  transform: translateX(32px);
+}
+
+:root[data-contrast="high"] .toggle__switch {
+  border: 2px solid #000;
+}
+:root[data-contrast="high"] .toggle__switch--on {
+  background: #000;
+}
