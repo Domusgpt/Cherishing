@@ -5,3 +5,10 @@ dist-ssr
 .DS_Store
 node_modules/.tmp
 coverage
+
+# firebase deploy cache
+.firebase/
+
+# never commit credentials
+sa*.json
+*serviceaccount*.json
