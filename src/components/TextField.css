@@ -1,0 +1,44 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.field__label {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.field__hint {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.field__control {
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0.7rem 0.9rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--surface-sunk);
+  color: var(--ink);
+  font-size: 1.1rem;
+  box-shadow: var(--inset-1);
+}
+
+.field__control::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+.field__control--area {
+  resize: vertical;
+  line-height: 1.5;
+  min-height: 8rem;
+}
+
+.field__control:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 1px;
+}

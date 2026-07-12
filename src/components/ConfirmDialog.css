@@ -1,0 +1,37 @@
+.confirm {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  max-width: 30rem;
+  width: calc(100% - 2rem);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--raise-3);
+}
+
+.confirm::backdrop {
+  background: rgba(28, 26, 23, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.confirm__title {
+  font-size: 1.4rem;
+  margin: 0 0 var(--sp-2);
+}
+
+.confirm__body {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 0 0 var(--sp-4);
+}
+
+.confirm__actions {
+  display: flex;
+  gap: var(--sp-3);
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+:root[data-contrast="high"] .confirm {
+  border: 2px solid #000;
+}

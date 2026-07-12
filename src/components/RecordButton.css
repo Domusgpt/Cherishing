@@ -1,0 +1,75 @@
+.record {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: flex-start;
+}
+
+.record__mic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: calc(var(--tap-min) + 16px);
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, #d9483f, #a5322b);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: var(--raise-2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.record__mic:active {
+  box-shadow: var(--inset-2);
+  transform: translateY(1px);
+}
+
+.record__mic-glyph {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.record__mic--live .record__mic-glyph {
+  animation: rec-blink calc(1200ms * var(--motion-scale, 1)) steps(2, start) infinite;
+}
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.record__live {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  align-items: flex-start;
+}
+
+.record__timer {
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.record__playback {
+  width: 100%;
+  max-width: 22rem;
+}
+
+.record__error {
+  color: var(--danger-deep);
+  font-weight: 700;
+}
+
+.record__unsupported {
+  padding: var(--sp-3);
+  background: var(--surface-sunk);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--inset-1);
+}
+
+:root[data-contrast="high"] .record__mic {
+  background: #000;
+  border: 2px solid #000;
+}

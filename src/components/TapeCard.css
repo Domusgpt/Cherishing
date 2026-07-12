@@ -1,0 +1,118 @@
+.tape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.tape__shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--tape-black-2), var(--tape-black));
+  box-shadow: var(--raise-2), inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -6px 14px rgba(0, 0, 0, 0.5);
+  padding: 12%;
+  overflow: hidden;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.tape:hover .tape__shell {
+  transform: translateY(-3px);
+  box-shadow: var(--raise-3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.tape__spools {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  right: 12%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tape__spool {
+  width: 26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #555 0 18%, #2a2a2a 19% 40%, #111 41%);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.tape:hover .tape__spool {
+  animation: spool-spin calc(3200ms * var(--motion-scale, 1)) linear infinite;
+}
+@keyframes spool-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tape__window {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  right: 30%;
+  height: 16%;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.4));
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.tape__label {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 8%;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  background: hsl(var(--label-hue, 40), 55%, 88%);
+  color: #241c12;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45), inset 0 0 0 2px hsl(var(--label-hue, 40), 45%, 78%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-height: 34%;
+}
+
+.tape__label-title {
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.15;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.tape__label-sub {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.tape__label-count {
+  margin-top: auto;
+  font-size: 0.75rem;
+  font-family: var(--font-label);
+  opacity: 0.75;
+}
+
+.tape__play {
+  font-weight: 800;
+  color: var(--brown-9);
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+}
+
+:root[data-contrast="high"] .tape__shell {
+  background: #000;
+  border: 2px solid #000;
+}
+:root[data-contrast="high"] .tape__label {
+  background: #fff;
+  color: #000;
+  box-shadow: inset 0 0 0 2px #000;
+}
+:root[data-contrast="high"] .tape__play {
+  color: var(--ink);
+}

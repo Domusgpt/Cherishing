@@ -1,0 +1,72 @@
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.chips__row {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: stretch;
+}
+
+.chips__input {
+  flex: 1;
+}
+
+.chips__add {
+  flex: none;
+  min-height: var(--tap-min);
+  padding: 0 1.1rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--raise-1);
+}
+.chips__add:active {
+  box-shadow: var(--inset-1);
+  transform: translateY(1px);
+}
+.chips__add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chips__list {
+  list-style: none;
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.chips__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.35rem 0.35rem 0.35rem 0.9rem;
+  background: var(--surface-sunk);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--raise-1);
+  font-weight: 700;
+}
+
+.chips__remove {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--cream-3);
+  color: var(--brown-9);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  box-shadow: var(--raise-1);
+}
+.chips__remove:active {
+  box-shadow: var(--inset-1);
+}

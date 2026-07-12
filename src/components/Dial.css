@@ -1,0 +1,28 @@
+.dial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.dial__swatch {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 3px solid var(--surface);
+  cursor: pointer;
+  box-shadow: var(--raise-1);
+  padding: 0;
+}
+.dial__swatch--on {
+  border-color: var(--brown-9);
+  box-shadow: var(--inset-1), var(--glow-amber);
+  transform: scale(1.05);
+}
+
+:root[data-contrast="high"] .dial__swatch {
+  border-color: #000;
+}
+:root[data-contrast="high"] .dial__swatch--on {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}

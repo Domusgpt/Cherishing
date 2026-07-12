@@ -1,0 +1,53 @@
+.shelf-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+
+.shelf {
+  position: relative;
+}
+
+.shelf__row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--sp-5) var(--sp-4);
+}
+
+.shelf__slot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.shelf__edit {
+  text-align: center;
+}
+
+.link-quiet {
+  border: none;
+  background: none;
+  color: var(--rust-deep);
+  font-weight: 700;
+  cursor: pointer;
+  min-height: var(--tap-min);
+  text-decoration: underline;
+  padding: 0 var(--sp-2);
+}
+
+/* A wooden shelf board sitting under each row of tapes. */
+.shelf__board {
+  height: 16px;
+  margin-top: -8px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #7a5a38, #5c4227);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+:root[data-contrast="high"] .shelf__board {
+  background: #000;
+}
