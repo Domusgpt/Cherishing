@@ -43,8 +43,6 @@ export function AddMemoryWizard() {
   const [restored, setRestored] = useState(false);
   const [busy, setBusy] = useState(false);
   const [photoNote, setPhotoNote] = useState<string | null>(null);
-  const [saved, setSaved] = useState(false);
-  const [savedId, setSavedId] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   // Restore an in-progress draft so an accidental close loses nothing.
@@ -142,41 +140,12 @@ export function AddMemoryWizard() {
       await repos.settings.remove(DRAFT_KEY);
       // Ask the browser to keep our data (mitigates Safari eviction).
       void navigator.storage?.persist?.();
-      setSaved(true);
-      // Stash the id for the success screen actions.
-      setSavedId(mem.id);
+      // Route to a dedicated confirmation screen. This unmounts the wizard, so
+      // returning to /memories/new later always starts from a clean form.
+      navigate(`/memories/saved/${mem.id}`);
     } finally {
       setBusy(false);
     }
-  }
-
-  if (saved) {
-    return (
-      <div className="wizard-done stack center">
-        <div className="wizard-done__badge" aria-hidden="true">
-          ✓
-        </div>
-        <h1 className="page-title">Memory saved</h1>
-        <p className="page-lead">It's safely tucked into your memory box.</p>
-        <div className="row" style={{ justifyContent: 'center' }}>
-          <ChunkyButton
-            variant="primary"
-            size="lg"
-            onClick={() => {
-              setDraft(EMPTY);
-              setSaved(false);
-              setSavedId(null);
-              setStep(0);
-            }}
-          >
-            Add another
-          </ChunkyButton>
-          <ChunkyButton size="lg" onClick={() => navigate(savedId ? `/memories/${savedId}` : '/memories')}>
-            See my memory
-          </ChunkyButton>
-        </div>
-      </div>
-    );
   }
 
   const next = () => setStep((s) => Math.min(STEP_COUNT - 1, s + 1));

@@ -3,6 +3,7 @@ import { ShelfScreen } from './screens/ShelfScreen.tsx';
 import { MemoryLibraryScreen } from './screens/MemoryLibraryScreen.tsx';
 import { MemoryDetailScreen } from './screens/MemoryDetailScreen.tsx';
 import { AddMemoryWizard } from './screens/AddMemoryWizard.tsx';
+import { MemorySavedScreen } from './screens/MemorySavedScreen.tsx';
 import { StoryBuilderScreen } from './screens/StoryBuilderScreen.tsx';
 import { PlaybackScreen } from './screens/PlaybackScreen.tsx';
 import { SettingsScreen } from './screens/SettingsScreen.tsx';
@@ -15,6 +16,7 @@ function renderRoute(path: string) {
   if (matchRoute('/', path)) return { chrome: true, node: <ShelfScreen /> };
   if (matchRoute('/memories', path)) return { chrome: true, node: <MemoryLibraryScreen /> };
   if (matchRoute('/memories/new', path)) return { chrome: true, node: <AddMemoryWizard /> };
+  if ((m = matchRoute('/memories/saved/:id', path))) return { chrome: true, node: <MemorySavedScreen id={m.id!} /> };
   if ((m = matchRoute('/memories/:id', path))) return { chrome: true, node: <MemoryDetailScreen id={m.id!} /> };
   if (matchRoute('/stories/new', path)) return { chrome: true, node: <StoryBuilderScreen /> };
   if ((m = matchRoute('/stories/:id/edit', path))) return { chrome: true, node: <StoryBuilderScreen id={m.id!} /> };
